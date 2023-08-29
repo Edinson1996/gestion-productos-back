@@ -31,6 +31,12 @@ public class ProductoController {
         return new ResponseEntity<>(categoriaService.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Producto>  obtenerProducto(@PathVariable Long id){
+        return new ResponseEntity<>(productoService.findById(id),HttpStatus.OK);
+
+    }
+
     @PostMapping("/crear")
     public ResponseEntity<Producto>  crearProducto(@RequestBody Producto producto){
         return new ResponseEntity<>(productoService.save(producto),HttpStatus.CREATED);
